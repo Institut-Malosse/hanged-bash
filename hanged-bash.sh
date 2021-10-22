@@ -35,7 +35,7 @@ pendu() {
 		# à son numéro de ligne et on remplace les accents 
 		# par des lettres simple
 
-		mot_a_deviner=`grep -v "-" /usr/share/dict/french | grep -v "'" | cat -n | grep -w "$ligne_du_mot" | awk -F' ' '{print $2}' | sed "y/āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ/aaaaeeeeiiiioooouuuuuuuu/"`
+		mot_a_deviner=`grep -v "-" /usr/share/dict/french | grep -v "'" | cat -n | grep -w "$ligne_du_mot" | awk -F' ' '{print $2}' | sed "y/âāáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ/aaaaaeeeeiiiioooouuuuuuuu/"`
 		
 		# On récupère le nombre de caractère dans un variable
 

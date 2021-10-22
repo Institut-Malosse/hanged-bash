@@ -16,9 +16,22 @@ Le programme nécessite la présence du dictionnaire `/usr/share/dict/french`
 
 Assurez vous de posséder le paquet. 
 
-Sur Archlinux lancez la commande 
+Sur **Archlinux** lancez la commande 
 
 `sudo pacman -S words`
+
+
+Sur **Debian/Ubuntu** lancez la commande
+
+`sudo apt install wordlist` 
+
+ou 
+
+`sudo apt install wfrench`
+
+Sur Fedora/RedHat/CentOS
+
+`sudo dnf install words`
 
 ## Détails 
 

@@ -35,14 +35,17 @@ pendu() {
 		# à son numéro de ligne et on remplace les accents 
 		# par des lettres simple
 
-		mot_a_deviner=`grep -v "-" /usr/share/dict/french | grep -v "'" | cat -n | grep -w "$ligne_du_mot" | awk -F' ' '{print $2}' | sed "y/âāáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ/aaaaaeeeeiiiioooouuuuuuuu/"`
+		mot_a_deviner=`grep -v "-" /usr/share/dict/french \
+			| grep -v "'" | cat -n | grep -w "$ligne_du_mot" \
+			| awk -F' ' '{print $2}' \
+			| sed "y/âāáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ/aaaaaeeeeiiiioooouuuuuuuu/"`
 		
 		# On récupère le nombre de caractère dans un variable
 
 		nb_caractere=${#mot_a_deviner}
 		# On fait une boucle for avec i comme variable d'itération
 		# On passera autant de fois qu'il y a de caractères
-		# dans le mot choisit
+		# dans le mot choisi
 	done 
 
 	for ((i=0 ; i<$nb_caractere ; i++))
@@ -52,14 +55,14 @@ pendu() {
 
 		lettre_p[$i]='.'
 
-		# On créer la chaine de caractères composée de point
+		# On crée la chaine de caractères composée de point
 		# pour être affiché à l'utilisateur 
 
 		mot_cache=$mot_cache${lettre_p[$i]}
 
 	done
 
-	# On créer une boule while afin d'executer le code 
+	# On crée une boule while afin d'executer le code 
 	# jusqu'à ce que l'utilisateur n'ai plus d'essais
 
 	while [ $essai_restant != 0 ]
@@ -79,7 +82,7 @@ pendu() {
 
 		juste=false
 
-		# On créer un boucle for qui parcours le mot 
+		# On crée un boucle for qui parcours le mot 
 		# caractère par caractère
 
 		for ((j=0 ; j<$nb_caractere ; j++))

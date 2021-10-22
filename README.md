@@ -25,3 +25,7 @@ Sur Archlinux lancez la commande
 Le fichier converti automatiquement les accents en caractères standard et ignore les mots composés.
 
 Attention à ne pas définir un interval de lettres min et max trop réduit, le script risque de prendre du temps avant de trouver le mot
+
+Le code est entièrement commenté vous pouvez donc facilement le comprendre et le modifier à votre guise.
+
+_Developed by Ahraon, Bernie, Bashi_

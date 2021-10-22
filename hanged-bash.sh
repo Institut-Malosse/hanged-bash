@@ -13,10 +13,17 @@ usage() {
 
 pendu() {
 	nb_caractere=0
-	# Récupération du nombre de mot dans le dictionnaire en 
-	# enlevant les mots composés et les mots avec des apostrophes
+
+	# On récupère un mot et on boucle tant que ce nombre 
+	# n'a pas un nombre de lettre compris entre 
+	# l'intervalle donné
+
 	while [ $nb_caractere -lt $nb_min_car ] || [ $nb_caractere -gt $nb_max_car ]
 	do
+
+		# Récupération du nombre de mot dans le dictionnaire en 
+		# enlevant les mots composés et les mots avec des apostrophes
+
 		nbmot=`cat /usr/share/dict/french | grep -v "-" | grep -v "'" | wc -l`
 
 		# Génération d'un chiffre aléatoire compris entre
@@ -25,9 +32,10 @@ pendu() {
 		ligne_du_mot=`echo $((1 + $RANDOM % $nbmot))`
 
 		# Récupération du mot à deviner en le greppant grace 
-		# à son numéro de ligne
+		# à son numéro de ligne et on remplace les accents 
+		# par des lettres simple
 
-		mot_a_deviner=`grep -v "-" /usr/share/dict/french | grep -v "'" | cat -n | grep -w "$ligne_du_mot" | awk -F' ' '{print $2}' | sed "y/āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ/aaaaeeeeiiiioooouuuuüüüü/"`
+		mot_a_deviner=`grep -v "-" /usr/share/dict/french | grep -v "'" | cat -n | grep -w "$ligne_du_mot" | awk -F' ' '{print $2}' | sed "y/āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ/aaaaeeeeiiiioooouuuuuuuu/"`
 		
 		# On récupère le nombre de caractère dans un variable
 
